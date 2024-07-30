@@ -6,16 +6,16 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-LOGFILE="/tmp/$0-$TIMESTAMP.log"
+LOGFILE="/tmp/$0-$TIMESTAMP.log" # $? exit status $0 script name 
 
-echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
+echo "Script started executing at $TIMESTAMP" &>> $LOGFILE # &>> store logs into logfile 1: success 2: fail &: both 
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e "ERROR:: $2 ... $R FAILED $N"
         exit 1
-    else
+    else 
         echo -e "$2 ... $G SUCCESS $N"
     fi
 }
